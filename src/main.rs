@@ -4,7 +4,7 @@ use std::thread::JoinHandle;
 use std::time::Instant;
 
 fn main() {
-    println!("Hello, world!");
+    println!("Running Benchmarks...");
 
     let duration = 10;
     let total_jobs = 32;
@@ -13,7 +13,7 @@ fn main() {
         run_benchmark(num_jobs, duration);
     }
 
-    println!("Acabou o benchmark!");
+    println!("End of Benchmarks");
 }
 
 fn run_benchmark(num_jobs: usize, est_duration_secs: usize) {
@@ -24,7 +24,7 @@ fn run_benchmark(num_jobs: usize, est_duration_secs: usize) {
         handle.join().unwrap();
     }
 
-    println!("Benchmark com {} jobs durou {:.3} segundos", num_jobs, (start.elapsed().as_millis() as f64) / 1000.0);
+    println!("Benchmark with {} jobs took {:.3} secs", num_jobs, (start.elapsed().as_millis() as f64) / 1000.0);
 }
 
 fn heavy_work(est_duration_secs: usize) -> f64 {

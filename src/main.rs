@@ -47,6 +47,7 @@ fn create_heavy_work_tasks(num_jobs: usize, est_duration_secs: usize) -> Vec<Joi
             thread::spawn(move || {
                 let result = heavy_work(est_duration_secs);
                 
+                // this is a trick so that `heavy_work` is not optimized away from the final program
                 if result > 499999995000000.0 {
                     println!("{}", result);
                 }
